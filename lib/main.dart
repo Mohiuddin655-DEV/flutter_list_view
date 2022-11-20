@@ -29,14 +29,16 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Home"),
         ),
-        body: const HomeBody(),
+        body: HomeBody(),
       ),
     );
   }
 }
 
 class HomeBody extends StatelessWidget {
-  const HomeBody({Key? key}) : super(key: key);
+  HomeBody({Key? key}) : super(key: key);
+
+  final items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   @override
   Widget build(BuildContext context) {
@@ -56,17 +58,14 @@ class HomeBody extends StatelessWidget {
               ),
             ),
           ),
-          ListView(
+          ListView.builder(
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            children: const [
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-            ],
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              return ListItemA(item: items[index]);
+            },
           ),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 8),
@@ -81,33 +80,14 @@ class HomeBody extends StatelessWidget {
               ),
             ),
           ),
-          ListView(
+          ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
             physics: const NeverScrollableScrollPhysics(),
-            children: const [
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-              ListItemA(),
-            ],
+            itemCount: 100,
+            itemBuilder: (BuildContext context, int index) {
+              return ListItemA(item: index + 1);
+            },
           ),
         ],
       ),
@@ -118,7 +98,10 @@ class HomeBody extends StatelessWidget {
 class ListItemA extends StatelessWidget {
   const ListItemA({
     Key? key,
+    required this.item,
   }) : super(key: key);
+
+  final int item;
 
   @override
   Widget build(BuildContext context) {
@@ -129,6 +112,14 @@ class ListItemA extends StatelessWidget {
       width: double.infinity,
       decoration: const BoxDecoration(
         color: Colors.black12,
+      ),
+      child: Text(
+        "$item",
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
