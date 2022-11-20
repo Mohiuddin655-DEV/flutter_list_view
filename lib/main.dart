@@ -58,13 +58,16 @@ class HomeBody extends StatelessWidget {
               ),
             ),
           ),
-          ListView.builder(
+          ListView.separated(
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: items.length,
             itemBuilder: (context, index) {
               return ListItemA(item: items[index]);
+            },
+            separatorBuilder: (context, index) {
+              return const SizedBox(height: 2);
             },
           ),
           Container(
@@ -80,13 +83,16 @@ class HomeBody extends StatelessWidget {
               ),
             ),
           ),
-          ListView.builder(
+          ListView.separated(
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 100,
             itemBuilder: (BuildContext context, int index) {
               return ListItemA(item: index + 1);
+            },
+            separatorBuilder: (context, index) {
+              return const SizedBox(height: 5);
             },
           ),
         ],
@@ -107,7 +113,6 @@ class ListItemA extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
-      margin: const EdgeInsets.symmetric(vertical: 1),
       height: 50,
       width: double.infinity,
       decoration: const BoxDecoration(
