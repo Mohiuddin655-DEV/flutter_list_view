@@ -40,25 +40,48 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: const [
-        ListItemA(),
-        ListItemA(),
-        ListItemA(),
-        ListItemA(),
-        ListItemA(),
-        ListItemA(),
-        ListItemA(),
-        ListItemA(),
-        ListItemA(),
-        ListItemA(),
-      ],
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Column(
+        children: [
+          ListView(
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            children: const [
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
 
 class ListItemA extends StatelessWidget {
-  const ListItemA({Key? key}) : super(key: key);
+
+  const ListItemA({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +91,7 @@ class ListItemA extends StatelessWidget {
       height: 50,
       width: double.infinity,
       decoration: const BoxDecoration(
-        color: Colors.red,
+        color: Colors.black12,
       ),
     );
   }
