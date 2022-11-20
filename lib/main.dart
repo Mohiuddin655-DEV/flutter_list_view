@@ -44,9 +44,47 @@ class HomeBody extends StatelessWidget {
       scrollDirection: Axis.vertical,
       child: Column(
         children: [
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: const Text(
+              "Header Category",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          ListView(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            children: const [
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+              ListItemA(),
+            ],
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(vertical: 8),
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: const Text(
+              "Body Category",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
           ListView(
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
+            physics: const NeverScrollableScrollPhysics(),
             children: const [
               ListItemA(),
               ListItemA(),
@@ -78,7 +116,6 @@ class HomeBody extends StatelessWidget {
 }
 
 class ListItemA extends StatelessWidget {
-
   const ListItemA({
     Key? key,
   }) : super(key: key);
